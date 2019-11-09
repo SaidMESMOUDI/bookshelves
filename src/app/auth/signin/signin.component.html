@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 img-thumbnail">
+    <form [formGroup]="signInForm" (ngSubmit)="onSumit()">
+      <legend class="text-primary">Connexion</legend>
+      <div class="form-group">
+        <label for="mail">Email</label>
+        <input type="email" id="mail" class="form-control" formControlName="email"/>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Mot de passe</label>
+        <input type="password" id="pwd" class="form-control" formControlName="password"/>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="signInForm.invalid">
+          <i class="glyphicon glyphicon-log-in"></i>&nbsp; Connexion</button>
+      <button type="reset" class="btn btn-default" [disabled]="signInForm.invalid">
+          <i class="glyphicon glyphicon-refresh"></i>&nbsp; Réinitialiser</button>
+    </form>
+    <p class="text-danger bg-warning h5" *ngIf="errorMessage">
+      <i class="glyphicon glyphicon-alert"></i>&nbsp; {{ errorMessage }}
+    </p>
+  </div>
+</div>

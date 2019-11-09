@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img width="300px" *ngIf="book.photo" [src]="book.photo" [alt]="book.title" />
+    <h3>Titre : {{ book.title }}</h3>
+    <h4>Publié par : {{ book.author }}</h4>
+    <button class="btn btn-info" (click)="onBack()">
+      <i class="glyphicon glyphicon-chevron-left"></i>&nbsp; Retour</button>
+  </div>
+</div>

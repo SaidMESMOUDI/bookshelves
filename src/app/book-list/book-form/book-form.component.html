@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 img-thumbnail">
+    <form [formGroup]="bookForm" (ngSubmit)="onSaveBook()">
+      <legend class="text-primary">Enregistrer un nouveau livre</legend>
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input id="title" type="text" class="form-control" formControlName="title"/>
+      </div>
+      <div class="form-group">
+        <label for="author">Auteur</label>
+        <input id="author" type="text" class="form-control" formControlName="author"/>
+      </div>
+      <div class="form-group">
+        <label for="file">Ajouter une photo</label>
+        <input id="file" type="file" class="form-control" (change)="detectFiles($event)" accept="image/*"/>
+        <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="bookForm.invalid || fileIsUploading">
+        <i class="glyphicon glyphicon-save"></i>&nbsp; Enregistrer</button>
+      <button type="reset" class="btn btn-default">
+        <i class="glyphicon glyphicon-refresh"></i>&nbsp; Réinitialiser</button>
+      <button class="btn btn-primary" (click)="onBack()">
+        <i class="glyphicon glyphicon-chevron-left"></i>&nbsp; Annuler</button>
+    </form>
+  </div>
+</div>
