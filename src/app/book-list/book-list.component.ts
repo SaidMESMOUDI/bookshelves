@@ -30,16 +30,25 @@ export class BookListComponent implements OnInit, OnDestroy {
   onNewBook() {
     this.router.navigate(['/books', 'new']);
   }
-  onDelete(book: Book) {
-    this.booksService.removeBook(book);
+
+  onDeleteBook(id: number, book: Book) {
+    if (confirm('Êtes-vous sûr de vouloir supprimer ce livre: ' + book.title + ' ?')) {
+      this.booksService.removeBook(id, book);
+    } else {
+      this.router.navigate(['/books']);
+    }
   }
+
   onViewBook(id: number) {
     this.router.navigate(['/books', 'view', id]);
+  }
+
+  onEditBook(id: number) {
+    this.router.navigate(['/books', 'edit', id]);
   }
 
   ngOnDestroy() {
     this.booksSubscription.unsubscribe();
   }
-
 
 }

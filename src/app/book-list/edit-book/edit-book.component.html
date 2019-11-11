@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3 img-thumbnail">
+    <form [formGroup]="editForm" (ngSubmit)="onEditBook()">
+      <legend class="text-primary">Modifier le livre</legend>
+      <div class="form-group">
+        <label for="title">Titre</label>
+        <input id="title" type="text" class="form-control" formControlName="title" value="{{lastTitle}}" />  <!--placeholder="{{lastBook.title}}""-->
+      </div>
+      <div class="form-group">
+        <label for="author">Auteur</label>
+        <input id="author" type="text" class="form-control" formControlName="author" [value]="lastAuthor"/> <!-- placeholder="{{lastBook.author}}"-->
+      </div>
+
+      <div class="form-group">
+        <label for="file">Ajouter une photo</label>
+        <input id="file" type="file" class="form-control" (change)="detectFiles($event)" accept="image/*"/> <!-- [value]="lastBook.photo"-->
+        <!--<a class="row" href="{{lastBook.photo}}" target="_blank">
+          <img class="col-sm-6 img-thumbnail" [src]="lastBook.photo" style="width: 120px"/>
+          <span class="col-sm-6 small">{{lastBook.photo}}</span>
+        </a>-->
+        <p class="text-success" *ngIf="fileUploaded">Photo chargée avec succès !</p>
+      </div>
+      <button type="submit" class="btn btn-success" [disabled]="editForm.invalid || fileIsUploading">
+        <i class="glyphicon glyphicon-save"></i>&nbsp; Enregistrer</button>
+      <button type="reset" class="btn btn-default"  [disabled]="fileIsUploading">
+        <i class="glyphicon glyphicon-refresh"></i>&nbsp; Réinitialiser</button>
+      <button class="btn btn-primary" (click)="onBack()">
+        <i class="glyphicon glyphicon-chevron-left"></i>&nbsp; Annuler</button>
+    </form>
+  </div>
+</div>

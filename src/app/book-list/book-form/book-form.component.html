@@ -10,6 +10,7 @@
         <label for="author">Auteur</label>
         <input id="author" type="text" class="form-control" formControlName="author"/>
       </div>
+
       <div class="form-group">
         <label for="file">Ajouter une photo</label>
         <input id="file" type="file" class="form-control" (change)="detectFiles($event)" accept="image/*"/>
@@ -18,7 +19,7 @@
 
       <button type="submit" class="btn btn-success" [disabled]="bookForm.invalid || fileIsUploading">
         <i class="glyphicon glyphicon-save"></i>&nbsp; Enregistrer</button>
-      <button type="reset" class="btn btn-default">
+      <button type="reset" class="btn btn-default"  [disabled]="fileIsUploading">
         <i class="glyphicon glyphicon-refresh"></i>&nbsp; Réinitialiser</button>
       <button class="btn btn-primary" (click)="onBack()">
         <i class="glyphicon glyphicon-chevron-left"></i>&nbsp; Annuler</button>

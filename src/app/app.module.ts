@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { SingleBookComponent } from './book-list/single-book/single-book.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { EditBookComponent } from './book-list/edit-book/edit-book.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
     BookListComponent,
     BookFormComponent,
     HeaderComponent,
-    SingleBookComponent
+    SingleBookComponent,
+    EditBookComponent
   ],
   imports: [
     BrowserModule,
